@@ -28,7 +28,7 @@ const ModalOverly = (props) => {
 const ErrorModal = (props) => {
   return (
     <React.Fragment>
-      {ReactDOM.createPortal(<Backdrop onClick={props.onConfirm}></Backdrop>)}
+      {ReactDOM.createPortal(<Backdrop onClick={props.onConfirm}.></Backdrop>)}
     </React.Fragment>
   );
 };
