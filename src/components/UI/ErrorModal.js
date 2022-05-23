@@ -35,6 +35,5 @@ const ErrorModal = (props) => {
     </React.Fragment>
   );
 };
-
+//
 export default ErrorModal;
-
