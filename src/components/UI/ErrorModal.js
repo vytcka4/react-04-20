@@ -5,7 +5,7 @@ import Button from "./Button";
 import classes from "./ErrorModal.module.css";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onConfirm} />;
+  return <div className={classes.backdrop} onConfirm={props.onConfirm} />;
 };
 
 const ModalOverly = (props) => {
@@ -22,18 +22,26 @@ const ModalOverly = (props) => {
       </footer>
     </Card>
   );
-  //
 };
 
 const ErrorModal = (props) => {
   return (
     <React.Fragment>
       {ReactDOM.createPortal(
-        <Backdrop onClick={props.onConfirm} />,
+        <Backdrop onConfirm={props.onConfirm} />,
         document.getElementById("backdrop-root")
+      )}
+      {ReactDOM.createPortal(
+        (
+          <ModalOverly
+            title={props.title}
+            message={props.message}
+            onConfirm={props.onConfirm}
+          />
+        ).document.getElementById("overlay-root")
       )}
     </React.Fragment>
   );
 };
-//
+
 export default ErrorModal;
