@@ -29,16 +29,15 @@ const ErrorModal = (props) => {
     <React.Fragment>
       {ReactDOM.createPortal(
         <Backdrop onConfirm={props.onConfirm} />,
-        document.getElementById("backdrop-root")
+        document.querySelector("#backdrop-root")
       )}
       {ReactDOM.createPortal(
-        (
-          <ModalOverly
-            title={props.title}
-            message={props.message}
-            onConfirm={props.onConfirm}
-          />
-        ).document.getElementById("overlay-root")
+        <ModalOverly
+          title={props.title}
+          message={props.message}
+          onConfirm={props.onConfirm}
+        />,
+        document.querySelector("#overlay-root")
       )}
     </React.Fragment>
   );
